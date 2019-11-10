@@ -5,8 +5,8 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
     state:{
-        user: {},
-        isLogin: false
+        user: window.$cookies.get("user"),
+        isLogin: window.$cookies.get("isLogin")
 
     },
     getters:{
@@ -19,10 +19,20 @@ const store = new Vuex.Store({
     },
     mutations:{
         set_user(state,user){
-            return state.user = user;
+            state.user = user
+            window.$cookies.set('user',user)
         },
         set_isLogin(state, isLogin){
-            return state.isLogin = isLogin
+            state.isLogin = isLogin
+            window.$cookies.set('isLogin',isLogin);
+        }
+    },
+    actions:{
+        set_user({commit}, user){
+            commit('set_user', user)
+        },
+        set_isLogin({commit} ,isLogin){
+            commit('set_isLogin', isLogin)
         }
     }
 })

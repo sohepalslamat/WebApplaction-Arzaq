@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import App from './App.vue'
-//import VueResource from 'vue-resource'
 import axios from 'axios'
 import VueCookies from 'vue-cookies'
 import VueRouter from 'vue-router'
@@ -46,8 +45,6 @@ base.interceptors.request.use((config) => {
 Vue.prototype.$http = base
 Vue.prototype.$https = base1
 
-
-//Vue.use(VueResource);
 
 new Vue({
   render: h => h(App),

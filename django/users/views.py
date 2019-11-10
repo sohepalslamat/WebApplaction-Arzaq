@@ -110,12 +110,7 @@ def login(request):
     return JsonResponse(serialize(user, token.key) ,safe=False, status=HTTP_200_OK )
     
 
-@csrf_exempt
-@api_view(["GET"])
-@permission_classes((IsAdminUser,))
-def sample_api(request):
-    data = {'sample_data': 123}
-    return Response(data, status=HTTP_200_OK)
+
 ##################################
 
 

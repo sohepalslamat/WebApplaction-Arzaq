@@ -63,17 +63,17 @@ export default {
                          });
         },
         login(value){
-            this.$store.commit('set_user', value)
+            this.$store.dispatch('set_user', value)
             this.$cookies.set('user',value)
-            this.$store.commit('set_isLogin', true)
+            this.$store.dispatch('set_isLogin', true)
             this.$cookies.set('isLogin',true);
             this.$router.push({ name: 'user', params: { id: value.id }})
 
         },
         logout(){
-            this.$store.commit('set_user', {})
+            this.$store.dispatch('set_user', {})
             this.$cookies.set('user',{});
-            this.$store.commit('set_isLogin', true)
+            this.$store.dispatch('set_isLogin', true)
             this.$cookies.set('isLogin',false);
         }
         

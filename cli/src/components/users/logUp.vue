@@ -99,8 +99,7 @@ export default {
         sendData(){
             let data = this.user;
            return this.$http.post('users/add', data,
-           {headers: {'Authorization':'Token '+ this.$cookies.get('user').Authorization}
-           })
+           )
                     .then(() => {
                         /* eslint-disable no-console */
                         data.username =  ''

@@ -5,7 +5,7 @@
             <a class="navbar-item" href="#">
             <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
             </a>
-            <router-link v-if="isLogin"  :to="{name: 'home'}"><b-button @click="logout" pill variant="primary">تسجيل الخروج</b-button></router-link>
+            <router-link v-if="isLogin"  :to="{name: 'home'}"><P>أهلا بك {{user.username}}</P><b-button @click="logout" pill variant="primary">تسجيل الخروج</b-button></router-link>
             <router-link v-else :to="{name: 'login'}"><b-button pill variant="info">تسجيل دخول</b-button></router-link>
             
             
@@ -39,9 +39,7 @@ export default {
     methods:{
          logout(){
             this.$store.commit('set_user', {})
-            this.$cookies.set('user',{});
             this.$store.commit('set_isLogin', false)
-            this.$cookies.set('isLogin',false);
             
         },
        
